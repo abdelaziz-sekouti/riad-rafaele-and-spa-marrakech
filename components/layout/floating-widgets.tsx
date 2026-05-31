@@ -22,7 +22,7 @@ export function FloatingWidgets() {
       </motion.div>
 
       <a 
-        href="https://wa.me/212777553714"
+        href="https://wa.me/212612236660"
         className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center whatsapp-pulse"
         target="_blank" rel="noreferrer"
         aria-label="Contact us on WhatsApp"
