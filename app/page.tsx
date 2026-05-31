@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Navbar } from '@/components/layout/navbar';
 import { FloatingWidgets } from '@/components/layout/floating-widgets';
+import { ScrollToTop } from '@/components/layout/scroll-to-top';
 import { AnimatedSection, ParallaxImage } from '@/components/ui/animations';
 import { Droplets, Flower2, Heart, Gem, ShieldCheck, Scroll as Feathers, MapPin, Star, Phone, Mail, Send, ZoomIn, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
@@ -14,6 +15,7 @@ export default function Home() {
     <main className="min-h-screen bg-background overflow-x-hidden pt-20">
       <Navbar />
       <FloatingWidgets />
+      <ScrollToTop />
 
       {/* Hero Section */}
       <section className="relative h-[100vh] w-full flex items-center justify-center overflow-hidden -mt-20">
@@ -271,7 +273,9 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/70 dark:text-on-surface-variant font-body text-sm">{t('footer.rights')}</p>
+          <p className="text-white/70 dark:text-on-surface-variant font-body text-sm">
+            {t('footer.rights').replace('2024', new Date().getFullYear().toString())}
+          </p>
         </div>
       </footer>
     </main>
