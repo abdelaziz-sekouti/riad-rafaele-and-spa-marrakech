@@ -25,7 +25,7 @@ export function Navbar() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md border-b border-outline-variant/30 ${isScrolled ? 'py-2 bg-surface/90 shadow-md' : 'py-4 bg-surface/80 shadow-sm'}`}>
         <div className="flex justify-between items-center w-full px-6 md:px-20 max-w-7xl mx-auto">
           <a href="#" className="font-display-lg text-[1.5rem] md:text-[2rem] text-primary tracking-tighter">
-            Riad Rafaele et SPA
+            Riad Aziz et SPA
           </a>
           
           <div className="hidden md:flex gap-8 items-center">
