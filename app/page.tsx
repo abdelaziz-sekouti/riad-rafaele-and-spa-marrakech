@@ -33,7 +33,7 @@ export default function Home() {
             <a href="#book" className="w-full md:w-auto bg-primary-container text-on-primary-fixed px-10 py-5 rounded-full text-[12px] font-bold tracking-widest uppercase hover:bg-primary transition-all animate-glow shadow-xl">
               {t('hero.book')}
             </a>
-            <a href="https://wa.me/212777553714" className="w-full md:w-auto border border-white/40 backdrop-blur-sm text-white px-10 py-5 rounded-full text-[12px] font-bold tracking-widest uppercase hover:bg-white hover:text-primary transition-all flex items-center justify-center gap-2 group">
+            <a href="https://wa.me/212612236660" className="w-full md:w-auto border border-white/40 backdrop-blur-sm text-white px-10 py-5 rounded-full text-[12px] font-bold tracking-widest uppercase hover:bg-white hover:text-primary transition-all flex items-center justify-center gap-2 group">
               <Phone size={18} className="group-hover:rotate-12 transition-transform"/> WhatsApp
             </a>
           </AnimatedSection>
@@ -65,7 +65,7 @@ export default function Home() {
             </div>
             <div className="mt-12 flex items-center gap-6">
               <div className="h-px bg-outline-variant flex-grow"></div>
-              <span className="font-display-lg text-[2rem] md:text-3xl text-primary italic shimmer-text">Rafaele</span>
+              <span className="font-display-lg text-[2rem] md:text-3xl text-primary italic shimmer-text">Aziz</span>
             </div>
           </AnimatedSection>
         </div>
@@ -199,11 +199,11 @@ export default function Home() {
             <div className="space-y-6">
               <div className="flex items-center gap-4 text-on-surface group">
                 <Phone className="text-primary group-hover:scale-110 transition-transform" />
-                <span className="font-body text-base">+212 5 24 38 47 08</span>
+                <span className="font-body text-base">+212 612236660</span>
               </div>
               <div className="flex items-center gap-4 text-on-surface group">
                 <Mail className="text-primary group-hover:scale-110 transition-transform" />
-                <span className="font-body text-base">contact@riadrafaele.com</span>
+                <span className="font-body text-base">contact@riadaziz.com</span>
               </div>
             </div>
           </AnimatedSection>
@@ -240,7 +240,7 @@ export default function Home() {
       <footer className="bg-inverse-surface dark:bg-surface-container-low w-full py-16 px-6 md:px-20 text-white dark:text-on-surface border-t border-outline-variant/10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="font-display-lg text-[32px] text-primary-fixed-dim mb-6 shimmer-text">Riad Rafaele</h3>
+            <h3 className="font-display-lg text-[32px] text-primary-fixed-dim mb-6 shimmer-text">Riad Aziz</h3>
             <p className="text-white/70 dark:text-on-surface-variant font-body text-base pr-10">
               {t('footer.desc')}
             </p>
