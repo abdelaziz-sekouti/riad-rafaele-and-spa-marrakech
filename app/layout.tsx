@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import { Playfair_Display, Montserrat } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import { LanguageProvider } from '@/components/language-provider';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -23,7 +24,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${playfair.variable} ${montserrat.variable} font-body antialiased`} suppressHydrationWarning>
         <ThemeProvider>
-          {children}
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

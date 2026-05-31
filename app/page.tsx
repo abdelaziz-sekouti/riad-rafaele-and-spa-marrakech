@@ -1,10 +1,15 @@
+'use client';
+
 import Image from 'next/image';
 import { Navbar } from '@/components/layout/navbar';
 import { FloatingWidgets } from '@/components/layout/floating-widgets';
 import { AnimatedSection, ParallaxImage } from '@/components/ui/animations';
 import { Droplets, Flower2, Heart, Gem, ShieldCheck, Scroll as Feathers, MapPin, Star, Phone, Mail, Send, ZoomIn, ChevronDown } from 'lucide-react';
+import { useLanguage } from '@/components/language-provider';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen bg-background overflow-x-hidden pt-20">
       <Navbar />
@@ -15,16 +20,16 @@ export default function Home() {
         <ParallaxImage src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSyXedDESI9DA5FR8-wqVgh53MB3LFSyiqDtkBfEW4Gcay1TsHPq56SZW7yFSPk9hl6eDVmFYHrMzKiEMwgvQRlr_8ezuScpsz8r1ezD_4uu5n8gdx2zXif73pOTlunTbWhfHfFnVq2JhZF_9uqZOmuMWohaWU0aUE-p88i5pTI2SwW0q4k5kykUusxL8UttAKnsQ4GPytnqsI4pIbJKEs3p63gfuzQ2hO9YySVs9_z_vaWm517mwR2oZ2-1SWycqjGdxi0fmqie4" alt="Luxury Hammam Marrakech" />
         <div className="relative z-10 text-center px-6 max-w-4xl pt-20">
           <AnimatedSection delay={0}>
-            <span className="shimmer-text text-[12px] font-bold tracking-[0.3em] uppercase mb-6 block">The Art of Wellbeing</span>
+            <span className="shimmer-text text-[12px] font-bold tracking-[0.3em] uppercase mb-6 block">{t('hero.subtitle')}</span>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <h1 className="text-on-primary font-display-lg text-[40px] md:text-[64px] leading-tight mb-8">
-              Luxury Hammam & Spa Experience in Marrakech Medina
+              {t('hero.title')}
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.4} className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <a href="#book" className="w-full md:w-auto bg-primary-container text-on-primary-fixed px-10 py-5 rounded-full text-[12px] font-bold tracking-widest uppercase hover:bg-primary transition-all animate-glow shadow-xl">
-              Book Your Experience
+              {t('hero.book')}
             </a>
             <a href="https://wa.me/212777553714" className="w-full md:w-auto border border-white/40 backdrop-blur-sm text-white px-10 py-5 rounded-full text-[12px] font-bold tracking-widest uppercase hover:bg-white hover:text-primary transition-all flex items-center justify-center gap-2 group">
               <Phone size={18} className="group-hover:rotate-12 transition-transform"/> WhatsApp
@@ -32,7 +37,7 @@ export default function Home() {
           </AnimatedSection>
         </div>
         <a href="#about" className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors animate-bounce">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Scroll</span>
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase">{t('hero.scroll')}</span>
           <ChevronDown size={32} />
         </a>
       </section>
@@ -50,11 +55,11 @@ export default function Home() {
           </AnimatedSection>
           
           <AnimatedSection delay={0.2}>
-            <span className="text-primary text-[12px] font-bold tracking-widest uppercase mb-4 block">Our Heritage</span>
-            <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary mb-8 leading-tight">Authentic Moroccan Rituals & Serene Sanctuary</h2>
+            <span className="text-primary text-[12px] font-bold tracking-widest uppercase mb-4 block">{t('about.subtitle')}</span>
+            <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary mb-8 leading-tight">{t('about.title')}</h2>
             <div className="space-y-6 text-on-surface-variant font-body text-base lg:text-lg">
-              <p>At Riad Rafaele et SPA, we preserve the soul of the Marrakech Medina. Our heritage is rooted in the ancestral wisdom of Moroccan wellness, where every treatment is a journey through time and sense.</p>
-              <p>From the moment you step through our arched corridors, the scent of orange blossom and the cool touch of hand-polished marble invite you to leave the bustle of the souks behind.</p>
+              <p>{t('about.p1')}</p>
+              <p>{t('about.p2')}</p>
             </div>
             <div className="mt-12 flex items-center gap-6">
               <div className="h-px bg-outline-variant flex-grow"></div>
@@ -68,28 +73,28 @@ export default function Home() {
       <section id="services" className="py-[120px] md:py-[160px] bg-surface-container-low px-6 md:px-20 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="text-center mb-20">
-            <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary mb-4 leading-tight">Best Hammam in Marrakech</h2>
-            <p className="text-on-surface-variant font-body text-base lg:text-lg max-w-2xl mx-auto">Curated wellness experiences designed to detoxify the body and soul using the finest local ingredients.</p>
+            <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary mb-4 leading-tight">{t('services.title')}</h2>
+            <p className="text-on-surface-variant font-body text-base lg:text-lg max-w-2xl mx-auto">{t('services.subtitle')}</p>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Traditional Hammam",
+                title: t('service1.title'),
                 icon: <Droplets className="text-primary-container" />,
-                desc: "A deep cleansing ritual with black soap, kessa scrub, and ghassoul clay wrap for glowing skin.",
+                desc: t('service1.desc'),
                 img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAOlmwe6xxyH_gg-lTfp-Q8kbUyd4S0cslCRZwDBWbZCXujmfSYiSSD2ww6xOFhk7mayGsRahYOmR0TLj-24ugxGOaC9Sq8r7DchnJsngu6WsfEDHNuxSWdVKLNLczuK_y4b7uGc-FSrBViSjpIjOSAu3FlIbayEhQP0RxUSMXwQR8SXXEsnXoTmPlMp3pXqTuvnCz_JXrm-3WSR--Leul2jX_HyeRoLHNhl0t67Ww4RZvRVm62B9_FbO9K_eHIPXGNB0xl-mpZcFU"
               },
               {
-                title: "Argan Oil Massage",
+                title: t('service2.title'),
                 icon: <Flower2 className="text-primary-container" />,
-                desc: "Experience the liquid gold of Morocco with a full-body relaxing massage to soothe tension.",
+                desc: t('service2.desc'),
                 img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAasqTGe3uUCgfKmyP82szrn2_0jcMK_ZWobi3dhBrvpbnolagNJ0dXwxk6BewIX9cCkF4XD9agWqO58GEJbs2L31yqOzApNkAyXuBkYPvYeNWngdv55QQYMlQb8zVh7bzG7imDXgnYWhQo3lvq4UiceVj5jkTNBMslK5BCZMhS4-nRYILeKU1p9pak5casHQAOKyWG_KwAh4dUtO2POAXQeF0o6P4MA3IPzcxfOaPY4Gcg--5-iek3dXXhC5fW690sPm6TMgrh8us"
               },
               {
-                title: "Couple Experience",
+                title: t('service3.title'),
                 icon: <Heart className="text-primary-container" />,
-                desc: "Share a moment of peace with our side-by-side treatments in a private, lantern-lit suite.",
+                desc: t('service3.desc'),
                 img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpDgMpkpOYKFbV835kijjYbC2EJRjnuToIJn9ty5VbgybCugYgwwpe6fgW8wONEsfjwf4D4OsKgpigPYYTGKkSOBHRl1uq6-fMHhi-LkICcAQ4uATMhhTGWXrPbZn1XEd4kZDpfEGoK94CPijFzZGuYXNxFtcSAVac8qjD7zWPn3O7Q94ncsPFV-qXu9tF6vs6cXw5VIiIYRNP17CcF1UIxdiAyFzt86s95d-eaE0NlaYZHNX2Vfqp_eHspGkoLcO8o7pQesK4iwo"
               }
             ].map((service, i) => (
@@ -105,7 +110,7 @@ export default function Home() {
                   </div>
                   <p className="text-on-surface-variant font-body text-base mb-6">{service.desc}</p>
                   <a href="#" className="text-primary text-[12px] font-bold tracking-widest uppercase flex items-center gap-2 group-hover:gap-4 transition-all">
-                    EXPLORE RITUAL <ChevronDown size={14} className="-rotate-90" />
+                    {t('services.explore')} <ChevronDown size={14} className="-rotate-90" />
                   </a>
                 </div>
               </AnimatedSection>
@@ -119,11 +124,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-16">
             <div>
-              <span className="text-primary text-[12px] font-bold tracking-widest uppercase mb-4 block">Visual Journey</span>
-              <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary leading-tight">The Sanctuary</h2>
+              <span className="text-primary text-[12px] font-bold tracking-widest uppercase mb-4 block">{t('gallery.subtitle')}</span>
+              <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary leading-tight">{t('gallery.title')}</h2>
             </div>
             <div className="text-on-surface-variant font-body text-base max-w-sm hidden md:block">
-               Every corner of our Riad is designed to inspire tranquility and capture the architectural beauty of Marrakech.
+               {t('gallery.desc')}
             </div>
           </AnimatedSection>
 
@@ -149,10 +154,10 @@ export default function Home() {
       <section className="py-[120px] bg-inverse-surface dark:bg-surface-container-lowest text-white px-6 md:px-20 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { icon: <Gem size={48} className="text-primary-fixed-dim mb-6" />, title: "Pure Luxury", desc: "Refined spaces designed for the most discerning travelers seeking exclusivity." },
-            { icon: <ShieldCheck size={48} className="text-primary-fixed-dim mb-6" />, title: "Expert Therapists", desc: "Highly trained professionals mastering both modern and ancient wellness techniques." },
-            { icon: <Feathers size={48} className="text-primary-fixed-dim mb-6" />, title: "Rich Traditions", desc: "Authentic rituals using organic Moroccan ingredients like Ghassoul and Argan." },
-            { icon: <MapPin size={48} className="text-primary-fixed-dim mb-6" />, title: "Prime Location", desc: "An oasis of calm situated perfectly in the heart of the historic Medina." }
+            { icon: <Gem size={48} className="text-primary-fixed-dim mb-6" />, title: t('feat1.title'), desc: t('feat1.desc') },
+            { icon: <ShieldCheck size={48} className="text-primary-fixed-dim mb-6" />, title: t('feat2.title'), desc: t('feat2.desc') },
+            { icon: <Feathers size={48} className="text-primary-fixed-dim mb-6" />, title: t('feat3.title'), desc: t('feat3.desc') },
+            { icon: <MapPin size={48} className="text-primary-fixed-dim mb-6" />, title: t('feat4.title'), desc: t('feat4.desc') }
           ].map((feat, idx) => (
             <AnimatedSection key={feat.title} delay={0.1 * idx} className="flex flex-col items-center text-center">
               {feat.icon}
@@ -167,15 +172,15 @@ export default function Home() {
       <section id="testimonials" className="py-[120px] md:py-[160px] bg-surface-container px-6 md:px-20 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
           <AnimatedSection>
-            <span className="text-primary text-[12px] font-bold tracking-widest uppercase mb-4 block">Traveler Voices</span>
+            <span className="text-primary text-[12px] font-bold tracking-widest uppercase mb-4 block">{t('test.subtitle')}</span>
             <div className="max-w-3xl mx-auto pt-8">
               <div className="flex justify-center text-primary-container mb-8 gap-1">
                 {[1,2,3,4,5].map(star => <Star key={star} size={24} fill="currentColor" />)}
               </div>
               <p className="font-display-lg text-[24px] md:text-[40px] text-on-surface mb-8 italic">
-                "The most beautiful Hammam I have ever experienced. The staff at Riad Rafaele made us feel like royalty."
+                {t('test.quote')}
               </p>
-              <p className="text-[12px] font-bold text-primary uppercase tracking-widest">— Sarah J., London</p>
+              <p className="text-[12px] font-bold text-primary uppercase tracking-widest">{t('test.author')}</p>
             </div>
           </AnimatedSection>
         </div>
@@ -185,9 +190,9 @@ export default function Home() {
       <section id="book" className="py-[120px] md:py-[160px] px-6 md:px-20 bg-surface-bright relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
           <AnimatedSection>
-            <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary mb-6 leading-tight">Begin Your Journey</h2>
+            <h2 className="font-display-lg text-[32px] md:text-[48px] text-primary mb-6 leading-tight">{t('book.title')}</h2>
             <p className="text-on-surface-variant font-body text-lg mb-10">
-              Select your preferred ritual and time. Our concierge will contact you shortly to confirm your reservation and assist with any special requests.
+              {t('book.desc')}
             </p>
             <div className="space-y-6">
               <div className="flex items-center gap-4 text-on-surface group">
@@ -204,25 +209,25 @@ export default function Home() {
           <AnimatedSection delay={0.2} className="bg-surface dark:bg-surface-container-high border border-outline-variant/30 p-8 md:p-12 shadow-2xl rounded-2xl">
             <form className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <input type="text" placeholder="Full Name" className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body" />
-                <input type="email" placeholder="Email Address" className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body" />
+                <input type="text" placeholder={t('book.form.name')} className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body" />
+                <input type="email" placeholder={t('book.form.email')} className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body" />
               </div>
               <select className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body appearance-none">
-                <option value="">Select Treatment</option>
-                <option value="hammam">Traditional Hammam (45 min)</option>
-                <option value="argan">Argan Oil Massage (60 min)</option>
-                <option value="couple">Couple Spa Ritual (90 min)</option>
-                <option value="pass">Full Day Sanctuary Pass</option>
+                <option value="">{t('book.form.treatment')}</option>
+                <option value="hammam">{t('book.form.t1')}</option>
+                <option value="argan">{t('book.form.t2')}</option>
+                <option value="couple">{t('book.form.t3')}</option>
+                <option value="pass">{t('book.form.t4')}</option>
               </select>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <input type="date" className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body opacity-50 focus:opacity-100" />
                 <input type="time" className="w-full border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors bg-transparent font-body opacity-50 focus:opacity-100" />
               </div>
               <button type="submit" className="w-full bg-primary text-on-primary py-5 rounded-lg text-[12px] font-bold tracking-widest uppercase hover:bg-primary-container transition-all shadow-lg active:scale-95 animate-glow">
-                Send Booking Request
+                {t('book.form.submit')}
               </button>
               <p className="text-center text-on-surface-variant font-body text-[12px] opacity-70">
-                Or book instantly via <a href="https://wa.me/212777553714" className="text-primary font-bold underline" target="_blank" rel="noreferrer">WhatsApp</a>
+                {t('book.form.or')} <a href="https://wa.me/212777553714" className="text-primary font-bold underline" target="_blank" rel="noreferrer">WhatsApp</a>
               </p>
             </form>
           </AnimatedSection>
@@ -235,30 +240,30 @@ export default function Home() {
           <div className="col-span-1 md:col-span-1">
             <h3 className="font-display-lg text-[32px] text-primary-fixed-dim mb-6 shimmer-text">Riad Rafaele</h3>
             <p className="text-white/70 dark:text-on-surface-variant font-body text-base pr-10">
-              A luxurious wellness haven in the heart of Marrakech, offering authentic Moroccan Hammam and Spa rituals.
+              {t('footer.desc')}
             </p>
           </div>
           <div>
-            <h4 className="text-primary-fixed font-bold mb-6 text-[12px] uppercase tracking-widest">Navigation</h4>
+            <h4 className="text-primary-fixed font-bold mb-6 text-[12px] uppercase tracking-widest">{t('footer.nav')}</h4>
             <ul className="space-y-4">
-              <li><a href="#about" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">About</a></li>
-              <li><a href="#services" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">Services</a></li>
-              <li><a href="#gallery" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">Gallery</a></li>
+              <li><a href="#about" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">{t('nav.about')}</a></li>
+              <li><a href="#services" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">{t('nav.services')}</a></li>
+              <li><a href="#gallery" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">{t('nav.gallery')}</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-primary-fixed font-bold mb-6 text-[12px] uppercase tracking-widest">Information</h4>
+            <h4 className="text-primary-fixed font-bold mb-6 text-[12px] uppercase tracking-widest">{t('footer.info')}</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">Privacy Policy</a></li>
-              <li><a href="#" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">Terms of Service</a></li>
-              <li><a href="#" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">Local Guide</a></li>
+              <li><a href="#" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">{t('footer.privacy')}</a></li>
+              <li><a href="#" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">{t('footer.terms')}</a></li>
+              <li><a href="#" className="text-white/70 dark:text-on-surface-variant hover:text-primary-fixed transition-colors font-body text-base">{t('footer.guide')}</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-primary-fixed font-bold mb-6 text-[12px] uppercase tracking-widest">Newsletter</h4>
-            <p className="text-white/70 dark:text-on-surface-variant font-body text-base mb-4">Join our community for wellness tips and exclusive offers.</p>
+            <h4 className="text-primary-fixed font-bold mb-6 text-[12px] uppercase tracking-widest">{t('footer.newsletter')}</h4>
+            <p className="text-white/70 dark:text-on-surface-variant font-body text-base mb-4">{t('footer.newsletter.desc')}</p>
             <div className="flex gap-2">
-              <input type="email" placeholder="Email" className="bg-white/10 dark:bg-on-surface/5 border-none rounded-lg px-4 py-2 text-white dark:text-on-surface w-full focus:ring-1 focus:ring-primary-fixed outline-none font-body" />
+              <input type="email" placeholder={t('book.form.email')} className="bg-white/10 dark:bg-on-surface/5 border-none rounded-lg px-4 py-2 text-white dark:text-on-surface w-full focus:ring-1 focus:ring-primary-fixed outline-none font-body" />
               <button className="bg-primary-fixed text-on-primary-fixed p-3 rounded-lg hover:bg-white transition-colors">
                 <Send size={18} />
               </button>
@@ -266,7 +271,7 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/70 dark:text-on-surface-variant font-body text-sm">© 2024 Riad Rafaele et SPA Marrakech. All rights reserved.</p>
+          <p className="text-white/70 dark:text-on-surface-variant font-body text-sm">{t('footer.rights')}</p>
         </div>
       </footer>
     </main>
